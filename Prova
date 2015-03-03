@@ -1,31 +1,21 @@
-import urllib2
-import re
-
-# con un diccionario
-# dict1 = {'Db':'C#', 'Eb':'F'}
-# dict1['C#']
-# si convertimos a numero podemos trabajar mucho mejor!
-# dos numeros --> 1: nota // 2: clase (mayor, menor...) 
-chords = {'C':1, 'C#': 2, 'Db':2, 'D':3, 'D#':4, 'Eb':4, 'E':5, 'F':6, 'F#':7, 'Gb':7, 'G':8, 'G#':9, 'Ab':9, 'A':10, 'A#':11, 'Bb':11, 'B':12}
-
-URL = urllib2.urlopen("http://tabs.ultimate-guitar.com/e/ed_sheeran/i_see_fire_ver4_crd.htm")
-page_source = URL.read()
-
-for chord in chords:
-    if chord in page_source:
-        span = re.findall(r"\b<span>[\w]*", page_source)
-        spann = re.findall(r"\b</span>[\w]*", page_source)
+import requests
+import bs4
 
 
-def find_between(s, first, last):
-    try:
-        start = s.index(first) + len(first)
-        end = s.index(last,start)
-        return s[start:end]
-    except ValueError:
-        return ''
+#chords = ('C','C#','Db','D','D#','Eb','E','F','F#','Gb','G','G#','Ab','A','A#','Bb','B')
+text_file_name = 'myfile.txt'
 
-# print find_between(page_source, '<title>', '</title>')
-    
-#result = re.search('<span>(.*)</span>', page_source)
-#print result.group(1)
+chords = ('Em','G','D','C','Am7','Bm')
+session = requests.session()
+
+req = session.get("http://tabs.ultimate-guitar.com/e/ed_sheeran/i_see_fire_ver4_crd.htm")
+
+doc = bs4.BeautifulSoup(req.content)
+f = open(text_file_name,'w')
+for link in doc.find_all('span'):
+    for child in link.children:
+        if child in chords:
+            print child
+            f = open(text_file_name,'a')
+            f.write(child + '\n')
+            f.close()
