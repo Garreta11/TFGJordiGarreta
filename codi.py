@@ -3,6 +3,7 @@ import bs4
 
 i = 0
 
+# comentario de código para mejorar la interacción...
 
 chords = ('C','C#','Cm',
 'Db','D','D#','Dm',
@@ -43,8 +44,8 @@ for link in codi.find_all('a'):
             '''
             print songs
             '''
-            text_file_name = 'SONG{0}'.format(i)+'.txt'  
-            i = i+1      
+            text_file_name = 'SONG{0}'.format(i)+'.txt'
+            i = i+1
             session = requests.session()
             req = session.get(songs)
             doc = bs4.BeautifulSoup(req.content)
@@ -72,5 +73,5 @@ for link in codi.find_all('a'):
 - Estimar la tonalidad con los datos anteriores
 - Encontrar patrones (de 3 a 8 acordes) dentro de la misma cancion (min 3 veces)
 - histograma total de todas las canciones (como estadistica) --------DONE-------
-                        
+
 '''
