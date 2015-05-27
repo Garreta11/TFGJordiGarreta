@@ -1,4 +1,4 @@
-#N canvas 441 23 304 674 10;
+#N canvas 604 23 304 674 10;
 #X declare -lib jasch_lib;
 #X obj 36 277 textfile;
 #X obj 6 94 a.listdir ../textfiles;
@@ -14,8 +14,8 @@
 #X floatatom 26 429 5 0 0 0 - - -;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array profile 12 float 1;
-#A 0 0 0.328125 0.00520833 0 0 0.213542 0.119792 0 0.213542 0.00520833
-0.114583 0;
+#A 0 0.235988 0 0.0914454 0 0.188791 0.132743 0 0.0737463 0 0.259587
+0 0.0176991;
 #X coords 0 1.1 11 0 100 50 1 0 0;
 #X restore 133 597 graph;
 #N canvas 520 317 457 294 root 0;
@@ -405,6 +405,9 @@
 #X connect 36 0 38 0;
 #X connect 38 1 35 0;
 #X restore 6 43 pd find_key;
+#X obj 110 51 metro 3000;
+#X obj 110 30 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
 #X connect 0 0 9 0;
 #X connect 0 1 21 1;
 #X connect 0 1 27 0;
@@ -438,3 +441,5 @@
 #X connect 24 0 22 0;
 #X connect 24 1 28 0;
 #X connect 30 0 18 0;
+#X connect 33 0 4 0;
+#X connect 34 0 33 0;
