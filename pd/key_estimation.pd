@@ -14,8 +14,8 @@
 #X floatatom -24 429 5 0 0 0 - - -;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array profile 12 float 1;
-#A 0 0.273632 0 0.0597015 0 0.273632 0 0 0.273632 0 0.0597015 0 0.0597015
-;
+#A 0 0.135593 0.00677966 0.0847458 0.0338983 0.19322 0.00677966 0.0474577
+0.19661 0 0.122034 0.00677966 0.166102;
 #X coords 0 1.1 11 0 100 50 1 0 0;
 #X restore 83 597 graph;
 #N canvas 520 317 457 294 root 0;
@@ -408,13 +408,13 @@
 #X connect 40 0 7 0;
 #X restore -44 44 pd find_key;
 #X obj 60 51 metro 3000;
-#X obj 60 30 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+#X obj 60 30 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
 #N canvas 66 56 704 500 type_table 0;
 #X obj 28 218 tabwrite TYPE_TABLE;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array TYPE_TABLE 6 float 1;
-#A 0 101.693 39.0495 0.01 0.05 0 2.93;
+#A 0 102.533 39.9893 0.01 0.05 0 3.07;
 #X coords 0 1 5 0 200 140 1 0 0;
 #X restore 226 170 graph;
 #X obj 28 196 + 0.01;
@@ -428,7 +428,7 @@
 #X connect 5 0 3 0;
 #X connect 7 0 0 1;
 #X restore 330 86 pd type_table;
-#N canvas 657 47 621 460 type_and_root_table 1;
+#N canvas 657 47 621 460 type_and_root_table 0;
 #X obj 243 -22 r type_chord;
 #X obj 158 -22 r root_chord;
 #X obj 243 4 * 12;
@@ -437,10 +437,10 @@
 #X obj 121 97 tabwrite root_and_type_table;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array root_and_type_table 72 float 1;
-#A 0 4.96002 2.25 3.3 0.01 4.19 9.20012 2.64 4.94002 1.42 2.2 1.93
-3.65 2.08 3.41 2.16 0 1.19 1.19 3.2 5.07002 0.4 6.00004 0 4.07 0 0
-0 0 0 0 0 0 0 0 0 2.89 0 0 0 0 0 0 0 0 1.54 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 3.61 0 0.839999 0 1.46 1.3 0 0.04 0 0.58 0 0.74;
+#A 0 9.38012 2.25 3.58 0.01 4.19 3.5 0.86 5.22002 1.42 2.2 1.93 3.65
+2.2 3.41 2.16 0 1.39 1.19 3.2 5.07002 0.4 6.42004 0 4.07 0 0 0 0 0
+0 0 0 0 0 0 2.89 0 0 0 0 0 0 0 0 1.54 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+3.61 0 0.839999 0 1.46 1.3 0 0.04 0 0.58 0 5.23002;
 #X coords 0 1 71 0 200 140 1 0 0;
 #X restore 93 141 graph;
 #X msg 389 95 \; root_and_type_table normalize;
