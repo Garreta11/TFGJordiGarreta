@@ -14,8 +14,8 @@
 #X floatatom -24 429 5 0 0 0 - - -;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array profile 12 float 1;
-#A 0 0.135593 0.00677966 0.0847458 0.0338983 0.19322 0.00677966 0.0474577
-0.19661 0 0.122034 0.00677966 0.166102;
+#A 0 0.235988 0 0.0914454 0 0.188791 0.132743 0 0.0737463 0 0.259587
+0 0.0176991;
 #X coords 0 1.1 11 0 100 50 1 0 0;
 #X restore 83 597 graph;
 #N canvas 520 317 457 294 root 0;
@@ -411,41 +411,43 @@
 #X obj 60 30 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
 #N canvas 66 56 704 500 type_table 0;
-#X obj 28 218 tabwrite TYPE_TABLE;
+#X obj 31 -115 tabwrite TYPE_TABLE;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array TYPE_TABLE 6 float 1;
-#A 0 102.533 39.9893 0.01 0.05 0 3.07;
+#A 0 1.83 1.58001 9.75296e-05 0.000487648 0 0.0999416;
 #X coords 0 1 5 0 200 140 1 0 0;
-#X restore 226 170 graph;
-#X obj 28 196 + 0.01;
-#X obj 28 174 tabread TYPE_TABLE;
-#X msg 226 116 \; TYPE_TABLE const 0;
-#X obj 28 151 r type_chord;
-#X msg 226 81 \; TYPE_TABLE normalize;
-#X obj 139 194 r type_chord;
+#X restore 229 -163 graph;
+#X obj 31 -137 + 0.01;
+#X obj 31 -159 tabread TYPE_TABLE;
+#X msg 229 -217 \; TYPE_TABLE const 0;
+#X obj 31 -182 r type_chord;
+#X msg 229 -252 \; TYPE_TABLE normalize;
+#X obj 142 -139 r type_chord;
 #X connect 2 0 0 0;
 #X connect 3 0 2 0;
 #X connect 5 0 3 0;
 #X connect 7 0 0 1;
 #X restore 330 86 pd type_table;
 #N canvas 657 47 621 460 type_and_root_table 0;
-#X obj 243 -22 r type_chord;
-#X obj 158 -22 r root_chord;
-#X obj 243 4 * 12;
-#X obj 158 21 +;
-#X obj 121 75 + 0.01;
-#X obj 121 97 tabwrite root_and_type_table;
+#X obj 192 -132 r type_chord;
+#X obj 107 -132 r root_chord;
+#X obj 192 -106 * 12;
+#X obj 107 -89 +;
+#X obj 70 -35 + 0.01;
+#X obj 70 -13 tabwrite root_and_type_table;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array root_and_type_table 72 float 1;
-#A 0 9.38012 2.25 3.58 0.01 4.19 3.5 0.86 5.22002 1.42 2.2 1.93 3.65
-2.2 3.41 2.16 0 1.39 1.19 3.2 5.07002 0.4 6.42004 0 4.07 0 0 0 0 0
-0 0 0 0 0 0 2.89 0 0 0 0 0 0 0 0 1.54 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-3.61 0 0.839999 0 1.46 1.3 0 0.04 0 0.58 0 5.23002;
+#A 0 1.13443 0.239869 0.756498 0.00106608 0.446689 0.350274 0.38313
+0.867564 0.151384 0.234539 0.205754 0.389121 0.294539 0.363535 0.451683
+0 0.418186 0.126864 0.341147 0.540507 0.0426434 0.360274 0 0.433896
+0 0 0 0 0 0 0 0 0 0 0 0.308098 0 0 0 0 0 0 0 0 0.164177 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0.384856 0 0.089551 0 0.155648 0.138591 0 0.00426434
+0 0.0618329 0 0.471658;
 #X coords 0 1 71 0 200 140 1 0 0;
-#X restore 93 141 graph;
-#X msg 389 95 \; root_and_type_table normalize;
-#X obj 121 51 tabread root_and_type_table;
-#X msg 389 62 \; root_and_type_table const 0;
+#X restore 42 31 graph;
+#X msg 338 -15 \; root_and_type_table normalize;
+#X obj 70 -59 tabread root_and_type_table;
+#X msg 338 -48 \; root_and_type_table const 0;
 #X connect 0 0 2 0;
 #X connect 1 0 3 0;
 #X connect 2 0 3 1;
