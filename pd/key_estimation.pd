@@ -1,4 +1,4 @@
-#N canvas 22 23 628 703 10;
+#N canvas 529 23 628 703 10;
 #X declare -lib jasch_lib;
 #X obj -14 277 textfile;
 #X obj -44 94 a.listdir ../textfiles;
@@ -14,8 +14,8 @@
 #X floatatom -24 429 5 0 0 0 - - -;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array profile 12 float 1;
-#A 0 0.284946 0 0.0483871 0 0.241935 0.0537635 0 0.172043 0 0.16129
-0 0.0376344;
+#A 0 0.273632 0 0.0597015 0 0.273632 0 0 0.273632 0 0.0597015 0 0.0597015
+;
 #X coords 0 1.1 11 0 100 50 1 0 0;
 #X restore 83 597 graph;
 #N canvas 520 317 457 294 root 0;
@@ -408,13 +408,13 @@
 #X connect 40 0 7 0;
 #X restore -44 44 pd find_key;
 #X obj 60 51 metro 3000;
-#X obj 60 30 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 60 30 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
 #N canvas 66 56 704 500 type_table 0;
 #X obj 28 218 tabwrite TYPE_TABLE;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array TYPE_TABLE 6 float 1;
-#A 0 43.3787 16.3203 0 0 0 1.76;
+#A 0 101.693 39.0495 0.01 0.05 0 2.93;
 #X coords 0 1 5 0 200 140 1 0 0;
 #X restore 226 170 graph;
 #X obj 28 196 + 0.01;
@@ -437,9 +437,10 @@
 #X obj 121 97 tabwrite root_and_type_table;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array root_and_type_table 72 float 1;
-#A 0 0.15 0 0 0 0 0.16 0 0.25 0 0 0 0 0 0 0.04 0 0 0 0 0 0 0.24 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#A 0 4.96002 2.25 3.3 0.01 4.19 9.20012 2.64 4.94002 1.42 2.2 1.93
+3.65 2.08 3.41 2.16 0 1.19 1.19 3.2 5.07002 0.4 6.00004 0 4.07 0 0
+0 0 0 0 0 0 0 0 0 2.89 0 0 0 0 0 0 0 0 1.54 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 3.61 0 0.839999 0 1.46 1.3 0 0.04 0 0.58 0 0.74;
 #X coords 0 1 71 0 200 140 1 0 0;
 #X restore 93 141 graph;
 #X msg 389 95 \; root_and_type_table normalize;
