@@ -1,4 +1,4 @@
-#N canvas 529 23 628 703 10;
+#N canvas 4 23 628 703 10;
 #X declare -lib jasch_lib;
 #X obj -14 277 textfile;
 #X obj -44 94 a.listdir ../textfiles;
@@ -14,8 +14,8 @@
 #X floatatom -24 429 5 0 0 0 - - -;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array profile 12 float 1;
-#A 0 0.235988 0 0.0914454 0 0.188791 0.132743 0 0.0737463 0 0.259587
-0 0.0176991;
+#A 0 0.189498 0 0.143836 0 0.105023 0.114155 0 0.203196 0 0.130137
+0 0.114155;
 #X coords 0 1.1 11 0 100 50 1 0 0;
 #X restore 83 597 graph;
 #N canvas 520 317 457 294 root 0;
@@ -414,7 +414,7 @@
 #X obj 31 -115 tabwrite TYPE_TABLE;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array TYPE_TABLE 6 float 1;
-#A 0 1.83 1.58001 9.75296e-05 0.000487648 0 0.0999416;
+#A 0 62.5155 27.7185 0.0101783 0.0508915 0 1.67961;
 #X coords 0 1 5 0 200 140 1 0 0;
 #X restore 229 -163 graph;
 #X obj 31 -137 + 0.01;
@@ -428,7 +428,7 @@
 #X connect 5 0 3 0;
 #X connect 7 0 0 1;
 #X restore 330 86 pd type_table;
-#N canvas 657 47 621 460 type_and_root_table 0;
+#N canvas 12 401 621 460 type_and_root_table 0;
 #X obj 192 -132 r type_chord;
 #X obj 107 -132 r root_chord;
 #X obj 192 -106 * 12;
@@ -437,12 +437,11 @@
 #X obj 70 -13 tabwrite root_and_type_table;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array root_and_type_table 72 float 1;
-#A 0 1.13443 0.239869 0.756498 0.00106608 0.446689 0.350274 0.38313
-0.867564 0.151384 0.234539 0.205754 0.389121 0.294539 0.363535 0.451683
-0 0.418186 0.126864 0.341147 0.540507 0.0426434 0.360274 0 0.433896
-0 0 0 0 0 0 0 0 0 0 0 0.308098 0 0 0 0 0 0 0 0 0.164177 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0.384856 0 0.089551 0 0.155648 0.138591 0 0.00426434
-0 0.0618329 0 0.471658;
+#A 0 0.836199 3.64091 0.695766 0.475669 4.66941 2.96066 1.93615 0.846198
+3.51585 2.36704 1.93114 5.17597 2.41015 3.53128 7.62918 0 4.82438 1.44743
+4.58092 5.78116 0.466361 9.10624 0 4.32172 0 0 0 0 0 0 0 0 0 0 0 4.45667
+0 0 0 0 0 0 0 0 1.93931 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.02304 0 0.936108
+0 1.61789 3.73 0 0.0445766 0 0.80082 0 3.21008;
 #X coords 0 1 71 0 200 140 1 0 0;
 #X restore 42 31 graph;
 #X msg 338 -15 \; root_and_type_table normalize;
@@ -456,7 +455,66 @@
 #X connect 4 0 5 0;
 #X connect 8 0 4 0;
 #X restore 330 107 pd type_and_root_table;
-#N canvas 324 178 450 300 reduction_table 0;
+#N canvas 627 23 696 698 reduction_table 0;
+#X obj 193 21 r key_estimation;
+#X obj 193 66 key2pc;
+#X floatatom 243 83 5 0 0 0 - - -;
+#X floatatom 158 83 5 0 0 0 - - -;
+#X text 281 76 0 = major;
+#X text 281 86 1 = minor;
+#X text 86 83 pitch class;
+#X obj 193 44 tosymbol;
+#X obj 193 110 t b f;
+#X obj 341 138 -;
+#X obj 376 115 r root_chord;
+#X obj 341 158 mod 12;
+#X floatatom 394 175 5 0 0 0 - - -;
+#X obj 226 151 sel 0 1;
+#X msg -11 227 set major_table_reduction;
+#X msg 153 227 set minor_table_reduction;
+#X obj 302 285 tabread;
+#X obj 341 186 t f f;
+#X obj 302 310 + 0.01;
+#X obj 302 341 tabwrite major;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array major_table_reduction 12 float 1;
+#A 0 1 0.0421729 0.665042 0.154904 0.302509 0.811029 0.0600153 0.913219
+0.096511 0.568529 0.53041 0.167881;
+#X coords 0 1 11 0 200 140 1 0 0;
+#X restore 48 386 graph;
+#X floatatom 397 214 5 0 0 0 - - -;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array minor_table_reduction 12 float 1;
+#A 0 0.913706 0.19797 0.456853 0.715736 0.309645 0.959391 0 1 0.614213
+0.208122 0.71066 0;
+#X coords 0 1 11 0 200 140 1 0 0;
+#X restore 272 388 graph;
+#X msg 53 544 \; major_table_reduction normalize;
+#X msg 281 544 \; minor_table_reduction normalize;
+#X msg 53 592 \; major_table_reduction const 0;
+#X msg 281 592 \; minor_table_reduction const 0;
+#X connect 0 0 7 0;
+#X connect 1 0 3 0;
+#X connect 1 0 8 0;
+#X connect 1 1 2 0;
+#X connect 1 1 13 0;
+#X connect 7 0 1 0;
+#X connect 8 1 9 1;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;
+#X connect 11 0 12 0;
+#X connect 11 0 17 0;
+#X connect 13 0 14 0;
+#X connect 13 1 15 0;
+#X connect 14 0 19 0;
+#X connect 14 0 16 0;
+#X connect 15 0 19 0;
+#X connect 15 0 16 0;
+#X connect 16 0 18 0;
+#X connect 17 0 16 0;
+#X connect 17 1 19 1;
+#X connect 17 1 21 0;
+#X connect 18 0 19 0;
 #X restore 330 128 pd reduction_table;
 #X obj 82 559 s modul_chord;
 #X obj 159 30 f;
