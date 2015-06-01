@@ -1,4 +1,4 @@
-#N canvas 4 23 628 703 10;
+#N canvas 369 23 628 703 10;
 #X declare -lib jasch_lib;
 #X obj -14 277 textfile;
 #X obj -44 94 a.listdir ../textfiles;
@@ -414,7 +414,7 @@
 #X obj 31 -115 tabwrite TYPE_TABLE;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array TYPE_TABLE 6 float 1;
-#A 0 62.5155 27.7185 0.0101783 0.0508915 0 1.67961;
+#A 0 1 0.377994 0.000178296 0.000891479 0 0.0196125;
 #X coords 0 1 5 0 200 140 1 0 0;
 #X restore 229 -163 graph;
 #X obj 31 -137 + 0.01;
@@ -437,11 +437,12 @@
 #X obj 70 -13 tabwrite root_and_type_table;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array root_and_type_table 72 float 1;
-#A 0 0.836199 3.64091 0.695766 0.475669 4.66941 2.96066 1.93615 0.846198
-3.51585 2.36704 1.93114 5.17597 2.41015 3.53128 7.62918 0 4.82438 1.44743
-4.58092 5.78116 0.466361 9.10624 0 4.32172 0 0 0 0 0 0 0 0 0 0 0 4.45667
-0 0 0 0 0 0 0 0 1.93931 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.02304 0 0.936108
-0 1.61789 3.73 0 0.0445766 0 0.80082 0 3.21008;
+#A 0 0.0755139 0.257434 0.0743698 0.00114415 0.479399 0.300911 0.205947
+0.0766581 0.157893 0.251713 0.220821 0.399308 0.231118 0.390155 0.625854
+0 0.469102 0.136154 0.366128 0.580087 0.045766 1 0 0.465669 0 0 0 0
+0 0 0 0 0 0 0 0.330659 0 0 0 0 0 0 0 0 0.176199 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0.413038 0 0.0961086 0 0.167046 0.12128 0 0.0045766 0 0.0663607
+0 0.300911;
 #X coords 0 1 71 0 200 140 1 0 0;
 #X restore 42 31 graph;
 #X msg 338 -15 \; root_and_type_table normalize;
@@ -455,7 +456,7 @@
 #X connect 4 0 5 0;
 #X connect 8 0 4 0;
 #X restore 330 107 pd type_and_root_table;
-#N canvas 627 23 696 698 reduction_table 0;
+#N canvas 360 23 696 698 reduction_table 0;
 #X obj 193 21 r key_estimation;
 #X obj 193 66 key2pc;
 #X floatatom 243 83 5 0 0 0 - - -;
@@ -534,6 +535,92 @@
 #X obj 228 519 s type_chord;
 #X msg 155 462 0;
 #X obj 38 424 s root_chord;
+#N canvas 237 113 450 300 Note_Generator 0;
+#X obj 87 24 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 87 43 metro 1000;
+#X floatatom 144 17 5 0 0 0 - - -;
+#X obj 87 71 list-wrandom;
+#X obj 87 122 makenote 1000 500;
+#X floatatom 45 102 5 0 0 0 - - -;
+#X floatatom 156 100 5 0 0 0 - - -;
+#X obj 87 146 + 48;
+#X obj 128 182 noteout;
+#X obj 286 30 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 286 54 tabdump major_table_reduction;
+#X obj 286 79 t a a;
+#N canvas 0 22 450 300 write-to-tables 0;
+#X obj 227 103 list-len;
+#X obj 308 180 s \$0-rand;
+#X obj 112 103 list prepend 0;
+#X obj 112 128 s \$0-dist;
+#X obj 93 256 s \$0-dist;
+#X msg 308 158 resize \$1 \, const 0;
+#X msg 93 155 normalize 1;
+#X msg 227 159 resize \$1;
+#X obj 93 55 t b a a;
+#X obj 93 33 inlet;
+#X connect 0 0 7 0;
+#X connect 0 0 5 0;
+#X connect 2 0 3 0;
+#X connect 5 0 1 0;
+#X connect 6 0 4 0;
+#X connect 7 0 4 0;
+#X connect 8 0 6 0;
+#X connect 8 1 2 0;
+#X connect 8 2 0 0;
+#X connect 9 0 8 0;
+#X restore 313 107 pd write-to-tables;
+#X floatatom 66 172 5 0 0 0 - - -;
+#X obj 49 62 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 284 120 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 284 169 t a a;
+#N canvas 0 22 450 300 write-to-tables 0;
+#X obj 227 103 list-len;
+#X obj 308 180 s \$0-rand;
+#X obj 112 103 list prepend 0;
+#X obj 112 128 s \$0-dist;
+#X obj 93 256 s \$0-dist;
+#X msg 308 158 resize \$1 \, const 0;
+#X msg 93 155 normalize 1;
+#X msg 227 159 resize \$1;
+#X obj 93 55 t b a a;
+#X obj 93 33 inlet;
+#X connect 0 0 7 0;
+#X connect 0 0 5 0;
+#X connect 2 0 3 0;
+#X connect 5 0 1 0;
+#X connect 6 0 4 0;
+#X connect 7 0 4 0;
+#X connect 8 0 6 0;
+#X connect 8 1 2 0;
+#X connect 8 2 0 0;
+#X connect 9 0 8 0;
+#X restore 311 197 pd write-to-tables;
+#X obj 284 144 tabdump minor_table_reduction;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 1 0 14 0;
+#X connect 2 0 1 1;
+#X connect 3 0 4 0;
+#X connect 3 0 5 0;
+#X connect 3 1 6 0;
+#X connect 4 0 7 0;
+#X connect 4 1 8 1;
+#X connect 7 0 8 0;
+#X connect 7 0 13 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 3 1;
+#X connect 11 1 12 0;
+#X connect 15 0 18 0;
+#X connect 16 0 3 1;
+#X connect 16 1 17 0;
+#X connect 18 0 16 0;
+#X restore 330 150 pd Note_Generator;
 #X connect 0 0 9 0;
 #X connect 0 1 21 1;
 #X connect 0 1 27 0;
