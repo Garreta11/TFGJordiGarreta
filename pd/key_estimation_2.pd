@@ -1,4 +1,4 @@
-#N canvas 336 23 406 717 10;
+#N canvas 314 23 406 717 10;
 #X declare -lib jasch_lib;
 #X obj -14 297 textfile;
 #X obj -44 94 a.listdir ../textfiles;
@@ -435,9 +435,9 @@
 #X obj 71 139 tabwrite root_and_type_table;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array root_and_type_table 72 float 1;
-#A 0 1838 0 965 0 0 456 62 1642 0 2 0 0 93 0 568 0 1276 0 0 0 0 1734
+#A 0 2018 0 1064 0 0 516 68 1798 0 2 0 0 102 0 649 0 1414 0 0 0 0 1929
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 36 0 0 0 0 0 0 26 0 217;
+0 0 0 0 0 0 36 0 0 0 0 0 0 26 0 238;
 #X coords 0 100 71 0 200 140 2 0 0;
 #X restore 42 213 graph;
 #X msg 338 95 \; root_and_type_table normalize;
@@ -526,7 +526,7 @@
 #X obj 159 51 until;
 #X obj 159 9 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#N canvas 381 39 1048 699 chord_accumulation 0;
+#N canvas 414 48 1048 699 chord_accumulation 0;
 #X obj 122 40 sel maj min aug dim sus4;
 #X obj 286 57 fromsymbol;
 #X obj 286 81 sel 7;
@@ -582,23 +582,23 @@ y menor);
 #X text 704 591 PUT TO ZERO BOTH TABLES:;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array major_table 72 float 3;
-#A 0 1042 0 145 0 0 867 0 892 0 1 58 4 0 0 247 0 89 6 0 81 0 589 0
+#A 0 1126 0 145 0 0 951 0 976 0 1 58 4 0 0 247 0 89 6 0 81 0 655 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 31 0 14 0 0 18 0 13 0 0;
 #X coords 0 500 71 0 200 140 1 0 0;
 #X restore 586 153 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array minor_table 72 float 3;
-#A 0 0 56 56 915 0 5 0 0 690 2 232 0 1412 0 0 3 0 1102 0 58 84 0 0
+#A 0 0 62 62 1032 0 5 0 0 783 2 259 0 1607 0 0 3 0 1249 0 64 93 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 7 0 0 0 0 196 0 0 0 0;
+0 0 0 0 0 7 0 0 0 0 217 0 0 0 0;
 #X coords 0 500 71 0 200 140 2 0 0;
 #X restore 792 152 graph;
 #X obj 383 679 + 1;
 #X obj 525 680 + 1;
 #X obj 486 580 t f f;
 #X obj 537 600 t f f;
-#N canvas 403 23 933 643 orden1 0;
+#N canvas 400 23 933 643 orden1 0;
 #X obj 94 146 inlet;
 #X obj 94 173 route 0 1;
 #X obj 39 323 pack f f;
@@ -629,18 +629,10 @@ y menor);
 #X obj 246 51 r end_file;
 #X obj 61 446 s fill_table major;
 #X obj 307 455 s fill_table minor;
-#N canvas 804 27 450 300 tab-orden1 0;
-#X obj 89 31 r fill_table major;
-#X obj 87 69 route \$1 \$2;
-#X floatatom 124 105 5 0 0 0 - - -;
-#X floatatom 78 105 5 0 0 0 - - -;
-#X connect 0 0 1 0;
-#X connect 1 0 3 0;
-#X connect 1 1 2 0;
-#X restore 599 246 pd tab-orden1;
+#X obj 471 262 multiplinstancer tables_major 72 major;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
-#X connect 1 1 14 0;
+#X connect 1 1 4 0;
 #X connect 2 0 3 0;
 #X connect 2 0 8 0;
 #X connect 3 0 2 1;
@@ -651,7 +643,6 @@ y menor);
 #X connect 8 0 24 0;
 #X connect 9 0 6 0;
 #X connect 9 0 25 0;
-#X connect 11 0 4 0;
 #X connect 12 0 10 0;
 #X connect 13 0 10 1;
 #X connect 14 0 11 1;
@@ -987,12 +978,12 @@ y menor);
 #X floatatom 40 95 5 0 0 0 - - -;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array major_key_table 12 float 1;
-#A 0 2 0 0 0 0 0 0 21 0 0 0 0;
+#A 0 2 0 0 0 0 0 0 24 0 0 0 0;
 #X coords 0 100 11 0 200 140 1 0 0;
 #X restore -150 422 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array minor_key_table 12 float 1;
-#A 0 0 0 0 0 28 0 0 0 0 18 0 0;
+#A 0 0 0 0 0 31 0 0 0 0 21 0 0;
 #X coords 0 100 11 0 200 140 1 0 0;
 #X restore 89 422 graph;
 #X obj 120 135 prepend;
