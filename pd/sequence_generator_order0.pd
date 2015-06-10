@@ -1,5 +1,5 @@
-#N canvas 1 23 829 715 10;
-#X obj 97 34 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#N canvas 183 23 829 715 10;
+#X obj 97 34 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
 #X floatatom 154 27 5 0 0 0 - - -;
 #X obj 97 142 list-wrandom;
@@ -82,7 +82,7 @@
 #X obj 201 609 +;
 #X obj 339 609 +;
 #X obj 558 332 vradio 15 1 0 11 empty empty empty 0 -8 0 10 -262144
--1 -1 0;
+-1 -1 5;
 #X text 573 330 +0;
 #X text 573 345 +12;
 #X text 573 360 +24;
@@ -97,6 +97,28 @@
 #X text 556 317 OCTAVES:;
 #X msg 207 58 set major_table \, bang;
 #X msg 217 78 set minor_table \, bang;
+#X obj 601 23 vradio 15 1 0 12 empty empty empty 0 -8 0 10 -262144
+-1 -1 3;
+#X obj 601 215 s key_orden0;
+#X obj 365 642 + 0;
+#X obj 223 641 + 0;
+#X obj 73 646 + 0;
+#X obj 429 615 r key_orden0;
+#X obj 253 615 r key_orden0;
+#X obj 96 616 r key_orden0;
+#X text 584 2 Choose tonality:;
+#X text 618 22 C;
+#X text 618 37 C#;
+#X text 618 52 D;
+#X text 618 67 D#;
+#X text 618 82 E;
+#X text 618 97 F;
+#X text 618 112 F#;
+#X text 618 127 G;
+#X text 618 142 G#;
+#X text 618 157 A;
+#X text 618 172 A#;
+#X text 618 187 B;
 #X connect 0 0 40 0;
 #X connect 1 0 40 1;
 #X connect 2 0 3 0;
@@ -186,12 +208,19 @@
 #X connect 52 0 53 1;
 #X connect 52 0 54 1;
 #X connect 52 0 55 1;
-#X connect 53 0 5 0;
-#X connect 53 0 6 0;
-#X connect 54 0 13 0;
-#X connect 54 0 14 0;
-#X connect 55 0 15 0;
-#X connect 55 0 16 0;
+#X connect 53 0 75 0;
+#X connect 54 0 74 0;
+#X connect 55 0 73 0;
 #X connect 56 0 41 0;
 #X connect 69 0 12 0;
 #X connect 70 0 12 0;
+#X connect 71 0 72 0;
+#X connect 73 0 15 0;
+#X connect 73 0 16 0;
+#X connect 74 0 13 0;
+#X connect 74 0 14 0;
+#X connect 75 0 6 0;
+#X connect 75 0 5 0;
+#X connect 76 0 73 1;
+#X connect 77 0 74 1;
+#X connect 78 0 75 1;
