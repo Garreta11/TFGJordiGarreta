@@ -1,4 +1,4 @@
-#N canvas 748 23 506 705 10;
+#N canvas 780 23 487 686 10;
 #X declare -lib jasch_lib;
 #X obj -14 261 textfile;
 #X obj -44 78 a.listdir ../textfiles;
@@ -626,7 +626,7 @@
 #X connect 22 1 6 1;
 #X restore 235 239 pd table_key;
 #X obj -44 121 t s b;
-#N canvas 833 23 293 700 tables 1;
+#N canvas 833 23 293 700 tables 0;
 #X obj 25 325 tab72 12 minor;
 #X obj 25 25 tab72 0 minor;
 #X obj 25 50 tab72 1 minor;
