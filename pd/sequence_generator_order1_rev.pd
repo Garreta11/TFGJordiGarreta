@@ -60,7 +60,7 @@
 #X obj 217 531 +;
 #X obj 355 529 +;
 #X obj 558 294 vradio 15 1 0 11 empty empty empty 0 -8 0 10 -262144
--1 -1 4;
+-1 -1 5;
 #X text 573 292 +0;
 #X text 573 307 +12;
 #X text 573 333 +24;
@@ -119,6 +119,8 @@
 #X obj 578 188 ctlout 123;
 #X msg 578 164 123;
 #X obj 526 88 sel 1 0;
+#X obj 615 580 pgmout;
+#X floatatom 663 604 5 0 0 0 - - -;
 #X connect 0 0 71 0;
 #X connect 0 0 89 0;
 #X connect 2 0 10 0;
@@ -242,3 +244,4 @@
 #X connect 92 0 81 0;
 #X connect 92 1 82 0;
 #X connect 92 1 91 0;
+#X connect 94 0 93 0;

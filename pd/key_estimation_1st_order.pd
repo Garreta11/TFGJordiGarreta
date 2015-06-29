@@ -1,4 +1,4 @@
-#N canvas 780 23 487 686 10;
+#N canvas 512 23 487 686 10;
 #X declare -lib jasch_lib;
 #X obj -14 261 textfile;
 #X obj -44 78 a.listdir ../textfiles;
